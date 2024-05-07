@@ -1,6 +1,8 @@
 # ZalexInc-Backend
 
 Architecture Overview
+
+
 This project uses Clean Architecture, which ensures that the software system is:
 
 Independent of Frameworks. The architecture does not depend on the existence of some library of feature-laden software. This allows you to use such frameworks as tools, rather than having to cram your system into their limited constraints.
