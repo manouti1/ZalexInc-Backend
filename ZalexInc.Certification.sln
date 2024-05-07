@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZalexInc.Certification.API", "ZalexInc.Certification.API\ZalexInc.Certification.API.csproj", "{61DF6A2C-DABA-4EBC-A6FD-1729C010BA2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZalexInc.Certification.Application", "ZalexInc.Certification.Application\ZalexInc.Certification.Application.csproj", "{1FBCA17B-1026-45F6-AFC0-94463FC86300}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZalexInc.Certification.Domain", "ZalexInc.Certification.Domain\ZalexInc.Certification.Domain.csproj", "{EF02D8AE-FC7F-476B-B73B-6947E7B54454}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZalexInc.Certification.Infrastructure", "ZalexInc.Certification.Infrastructure\ZalexInc.Certification.Infrastructure.csproj", "{7F8A0097-1873-4970-BD66-E5BB064271FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZalexInc.Certification.Tests", "ZalexInc.Certification.Tests\ZalexInc.Certification.Tests.csproj", "{89B30DF3-9586-4CFB-9FE8-978E6FE5B3B1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{61DF6A2C-DABA-4EBC-A6FD-1729C010BA2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61DF6A2C-DABA-4EBC-A6FD-1729C010BA2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61DF6A2C-DABA-4EBC-A6FD-1729C010BA2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61DF6A2C-DABA-4EBC-A6FD-1729C010BA2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FBCA17B-1026-45F6-AFC0-94463FC86300}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FBCA17B-1026-45F6-AFC0-94463FC86300}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FBCA17B-1026-45F6-AFC0-94463FC86300}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FBCA17B-1026-45F6-AFC0-94463FC86300}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF02D8AE-FC7F-476B-B73B-6947E7B54454}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF02D8AE-FC7F-476B-B73B-6947E7B54454}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF02D8AE-FC7F-476B-B73B-6947E7B54454}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF02D8AE-FC7F-476B-B73B-6947E7B54454}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F8A0097-1873-4970-BD66-E5BB064271FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F8A0097-1873-4970-BD66-E5BB064271FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F8A0097-1873-4970-BD66-E5BB064271FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F8A0097-1873-4970-BD66-E5BB064271FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89B30DF3-9586-4CFB-9FE8-978E6FE5B3B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89B30DF3-9586-4CFB-9FE8-978E6FE5B3B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89B30DF3-9586-4CFB-9FE8-978E6FE5B3B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89B30DF3-9586-4CFB-9FE8-978E6FE5B3B1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
