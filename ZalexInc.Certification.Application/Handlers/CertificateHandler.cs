@@ -37,56 +37,88 @@ namespace ZalexInc.Certification.Application.Handlers
 
         public async Task<OperationResult<CertificateDto>> Handle(CreateCertificateCommand request, CancellationToken cancellationToken)
         {
-            var validationResult = await _createValidator.ValidateAsync(request);
-            if (!validationResult.IsValid)
-                return OperationResult<CertificateDto>.Fail("Validation failed", validationResult.Errors.Select(e => e.ErrorMessage).ToList());
+            try
+            {
+                var validationResult = await _createValidator.ValidateAsync(request);
+                if (!validationResult.IsValid)
+                    return OperationResult<CertificateDto>.Fail("Validation failed", validationResult.Errors.Select(e => e.ErrorMessage).ToList());
 
-            var certificate = _mapper.Map<Certificate>(request);
-            var result = await _certificateRepository.CreateCertificateAsync(certificate);
-            return OperationResult<CertificateDto>.Ok(_mapper.Map<CertificateDto>(result));
+                var certificate = _mapper.Map<Certificate>(request);
+                var result = await _certificateRepository.CreateCertificateAsync(certificate);
+                return OperationResult<CertificateDto>.Ok(_mapper.Map<CertificateDto>(result));
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
         }
 
         public async Task<OperationResult> Handle(UpdateCertificateCommand request, CancellationToken cancellationToken)
         {
-            var validationResult = await _updateValidator.ValidateAsync(request);
-            if (!validationResult.IsValid)
-                return OperationResult.Fail(validationResult.Errors.Select(e => e.ErrorMessage).ToList());
+            try
+            {
+                var validationResult = await _updateValidator.ValidateAsync(request);
+                if (!validationResult.IsValid)
+                    return OperationResult.Fail(validationResult.Errors.Select(e => e.ErrorMessage).ToList());
 
-            var certificate = await _certificateRepository.GetAllCertificateByIdAsync(request.Id);
-            if (certificate == null)
-                return OperationResult.Fail("Certificate not found");
+                var certificate = await _certificateRepository.GetAllCertificateByIdAsync(request.Id);
+                if (certificate == null)
+                    return OperationResult.Fail("Certificate not found");
 
-            _mapper.Map(request, certificate);
-            await _certificateRepository.UpdateCertificateAsync(certificate);
-            return OperationResult.Ok();
+                _mapper.Map(request, certificate);
+                await _certificateRepository.UpdateCertificateAsync(certificate);
+                return OperationResult.Ok();
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
         }
 
         public async Task<OperationResult> Handle(DeleteCertificateCommand request, CancellationToken cancellationToken)
         {
-            var result = await _certificateRepository.DeleteCertificateAsync(request.Id);
-            return result ? OperationResult.Ok() : OperationResult.Fail("Certificate not found");
+            try
+            {
+                var result = await _certificateRepository.DeleteCertificateAsync(request.Id);
+                return result ? OperationResult.Ok() : OperationResult.Fail("Certificate not found");
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
         }
 
         public async Task<OperationResult<CertificateDto>> Handle(GetCertificateByIdQuery request, CancellationToken cancellationToken)
         {
-            var certificate = await _certificateRepository.GetAllCertificateByIdAsync(request.Id);
+            try
+            {
+                var certificate = await _certificateRepository.GetAllCertificateByIdAsync(request.Id);
 
-            var certificateDto = _mapper.Map<CertificateDto>(certificate);
+                var certificateDto = _mapper.Map<CertificateDto>(certificate);
 
-            if (certificate == null)
-                return OperationResult<CertificateDto>.Fail("Certificate not found", certificateDto);
+                if (certificate == null)
+                    return OperationResult<CertificateDto>.Fail("Certificate not found", certificateDto);
 
-            return OperationResult<CertificateDto>.Ok(_mapper.Map<CertificateDto>(certificate));
+                return OperationResult<CertificateDto>.Ok(_mapper.Map<CertificateDto>(certificate));
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
         }
 
         public async Task<OperationResult<Pagination<CertificateDto>>> Handle(GetPaginatedCertificatesQuery request, CancellationToken cancellationToken)
         {
-            var certificates = await _certificateRepository.GetCertificatesPaginatedAsync(request.PageIndex, request.PageSize, request.SortBy);
-            var certificateDtos = _mapper.Map<List<CertificateDto>>(certificates);
-            var totalCount = await _certificateRepository.GetTotalCertificatesCountAsync();
+            try
+            {
+                var certificates = await _certificateRepository.GetCertificatesPaginatedAsync(request.PageIndex, request.PageSize, request.SortBy);
+                var certificateDtos = _mapper.Map<List<CertificateDto>>(certificates);
+                var totalCount = await _certificateRepository.GetTotalCertificatesCountAsync();
 
-            var pagination = new Pagination<CertificateDto>(request.PageIndex, request.PageSize, totalCount, certificateDtos);
-            return OperationResult<Pagination<CertificateDto>>.Ok(pagination);
+                var pagination = new Pagination<CertificateDto>(request.PageIndex, request.PageSize, totalCount, certificateDtos);
+                return OperationResult<Pagination<CertificateDto>>.Ok(pagination);
+            }
+            catch (Exception e) { throw; }
         }
     }
 }

@@ -10,8 +10,10 @@ using System.Reflection;
 using ZalexInc.Certification.API.Errors;
 using ZalexInc.Certification.API.MiddleWares;
 using ZalexInc.Certification.API.Resolvers;
+using ZalexInc.Certification.Application.Commands;
 using ZalexInc.Certification.Application.Handlers;
 using ZalexInc.Certification.Application.Profiles;
+using ZalexInc.Certification.Application.Validators;
 using ZalexInc.Certification.Domain.Interfaces;
 using ZalexInc.Certification.Infrastructure.Data;
 using ZalexInc.Certification.Infrastructure.Repositories;
@@ -44,6 +46,8 @@ builder.Logging.ClearProviders(); // Clear existing logging providers
 builder.Logging.AddConsole(); // Add console logging provider
 builder.Services.AddScoped<ICertificateRepository, CeritifcateRepository>();
 builder.Services.AddAutoMapper(typeof(MappingProfiles));
+builder.Services.AddTransient<IValidator<CreateCertificateCommand>, CreateCertificateCommandValidator>();
+builder.Services.AddTransient<IValidator<UpdateCertificateCommand>, UpdateCertificateCommandValidator>();
 
 builder.Services.AddMediatR(x => x.RegisterServicesFromAssemblies(typeof(CertificateHandler).Assembly));
 

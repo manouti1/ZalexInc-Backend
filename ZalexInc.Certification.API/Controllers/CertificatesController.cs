@@ -24,7 +24,7 @@ namespace ZalexInc.Certification.API.Controllers
             var result = await _mediator.Send(command);
             if (result.Success)
                 return Ok(result.Data);
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
 
         [HttpPut("{id}")]
@@ -37,7 +37,7 @@ namespace ZalexInc.Certification.API.Controllers
             if (result.Success)
                 return Ok();
 
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
 
         [HttpDelete("{id}")]
@@ -48,7 +48,7 @@ namespace ZalexInc.Certification.API.Controllers
             if (result.Success)
                 return Ok();
 
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
 
         [HttpGet("{id}")]
@@ -59,7 +59,7 @@ namespace ZalexInc.Certification.API.Controllers
             if (result.Success)
                 return Ok(result.Data);
 
-            return NotFound(result.Message);
+            return NotFound(result);
         }
 
         [HttpGet]
